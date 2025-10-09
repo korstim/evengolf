@@ -816,7 +816,167 @@
             border-color: var(--color-primary);
         }
 
-        /* ===== КОМПОНЕНТ: СЕКЦИЯ "О НАС" ===== */
+        /* ===== ИСПРАВЛЕННАЯ СЕКЦИЯ "О НАС" ===== */
+        
+        .about-section {
+            background: var(--color-secondary);
+            width: 100%;
+            margin: 0;
+            padding: 0;
+        }
+
+        .about-section__image {
+            width: 100%;
+            height: 400px;
+            overflow: hidden;
+        }
+
+        .about-section__image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+            display: block;
+        }
+
+        .about-section__content {
+            background: var(--color-secondary);
+            width: 100%;
+            padding: 60px 0;
+        }
+
+        .about-section__inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            color: var(--color-white);
+            text-align: left;
+        }
+
+        .about-section__lead {
+            margin-bottom: 30px;
+        }
+
+        .about-section__lead p {
+            font-size: 28px;
+            line-height: 1.3;
+            color: var(--color-white);
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            margin: 0;
+        }
+
+        .brand-highlight {
+            color: var(--color-primary);
+            font-weight: 700;
+        }
+
+        .about-section__text {
+            margin-bottom: 40px;
+        }
+
+        .about-section__text p {
+            font-size: 18px;
+            line-height: 1.6;
+            color: var(--color-white);
+            margin-bottom: 20px;
+            opacity: 0.9;
+            margin: 0 0 20px 0;
+        }
+
+        .about-link {
+            color: var(--color-primary);
+            text-decoration: underline;
+        }
+
+        .about-link:hover {
+            color: var(--color-primary-dark);
+        }
+
+        .about-section__link {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            color: var(--color-primary);
+            text-decoration: none;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 16px;
+            padding: 10px 0;
+        }
+
+        .about-section__link:hover {
+            gap: 15px;
+            color: var(--color-primary-dark);
+        }
+
+        .about-section__link i {
+            font-size: 14px;
+            transition: transform 0.3s ease;
+        }
+
+        .about-section__link:hover i {
+            transform: translateY(-2px);
+        }
+
+        /* АДАПТИВНОСТЬ */
+        @media (max-width: 768px) {
+            .about-section__image {
+                height: 300px;
+            }
+            
+            .about-section__content {
+                padding: 40px 0;
+            }
+            
+            .about-section__inner {
+                padding: 0 15px;
+            }
+            
+            .about-section__lead p {
+                font-size: 22px;
+            }
+            
+            .about-section__text p {
+                font-size: 16px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .about-section__image {
+                height: 250px;
+            }
+            
+            .about-section__content {
+                padding: 30px 0;
+            }
+            
+            .about-section__inner {
+                padding: 0 10px;
+            }
+            
+            .about-section__lead p {
+                font-size: 18px;
+            }
+            
+            .about-section__text p {
+                font-size: 14px;
+            }
+        }
+        /* Стили для ссылок в тексте "О нас" */
+        .about-link {
+            color: var(--color-primary);
+            text-decoration: underline;
+            transition: all var(--transition-fast);
+        }
+
+        .about-link:hover {
+            color: var(--color-primary-dark);
+            text-decoration: none;
+        }
+        
         .about-section {
             padding: var(--spacing-4xl) var(--spacing-lg);
             border-top: 1px solid var(--color-gray-line);
@@ -1677,39 +1837,37 @@
         </div>
     </section>
 
-    <!-- СЕКЦИЯ "О НАС" -->
+   <!-- СЕКЦИЯ "О НАС" -->
     <section class="about-section" id="about">
-        <h2 class="about-section__title">О нашем магазине</h2>
+        <!-- ИЗОБРАЖЕНИЕ -->
+        <div class="about-section__image">
+            <img src="https://images.unsplash.com/photo-1587174486073-ae5e5cff23aa?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" 
+                alt="EvenGolf - премиальные клюшки для гольфа">
+        </div>
+
+        <!-- ТЕКСТОВЫЙ БЛОК -->
         <div class="about-section__content">
-            <div class="about-section__text">
-                <p>EvenGolf - это премиальный магазин клюшек для гольфа, созданный для настоящих ценителей этой благородной игры. Мы работаем на рынке с 2018 года и за это время помогли тысячам игроков найти свои идеальные клюшки.</p>
+            <div class="about-section__inner">
+                <!-- ЛИД-ТЕКСТ -->
+                <div class="about-section__lead">
+                    <p><span class="brand-highlight">EVENGOLF</span> - НОВЕЙШИЙ ИНТЕРНЕТ-МАГАЗИН, В КОТОРОМ МЫ ПОДОБРАЛИ ТОВАРЫ ДЛЯ ИГРОКОВ ЛЮБОГО УРОВНЯ.</p>
+                </div>
                 
-                <p>Наша философия проста: каждый игрок заслуживает лучшее оборудование, независимо от уровня подготовки. Мы тщательно отбираем каждый продукт, сотрудничая только с проверенными производителями и поставщиками.</p>
-            </div>
-            <div class="about-section__images">
-                <div class="about-section__image">
-                    <img src="https://images.unsplash.com/photo-1587174486073-ae5e5cff23aa?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Наш магазин">
+                <!-- ОСНОВНОЙ ТЕКСТ -->
+                <div class="about-section__text">
+                    <p>Мы формируем наш ассортимент исключительно с лучшими моделями последних лет, создавая оптимальные условия и открывая доступ к премиальному оборудованию для всех.</p>
+                    <p>Наша система <a href="trade-in.html" class="about-link">Trade-in</a> позволит вам моментально получить выкуп или обмен ваших клюшек с максимальной выгодой!</p>
+                    <p>Мы предлагаем персонализированный подход к каждому и ответим на любой ваш вопрос в <a href="#" onclick="openSupportModal()" class="about-link">поддержке</a>.</p>
                 </div>
+
+                <!-- ССЫЛКА НА КАТАЛОГ -->
+                <a href="#catalog-filters" class="about-section__link">
+                    КАТАЛОГ
+                    <i class="fas fa-arrow-up"></i>
+                </a>
             </div>
-        </div>
-        <div class="about-section__text">
-            <p>В нашем ассортименте вы найдете клюшки для всех уровней игры - от начинающих до профессионалов. Мы также предлагаем услугу trade-in, где вы можете обменять свои старые клюшки на новые с выгодной доплатой.</p>
-        </div>
-        <div class="about-section__content">
-            <div class="about-section__images">
-                <div class="about-section__image">
-                    <img src="https://images.unsplash.com/photo-1598880796845-114a3efc171f?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Наша продукция">
-                </div>
-            </div>
-            <div class="about-section__text">
-                <p>Наша команда состоит из опытных гольфистов, которые всегда готовы проконсультировать вас и помочь с выбором. Мы регулярно проводим тест-драйвы и мастер-классы, чтобы вы могли протестировать оборудование перед покупкой.</p>
-            </div>
-        </div>
-        <div class="about-section__text">
-            <p>Мы гордимся тем, что создали сообщество настоящих любителей гольфа, где каждый может найти поддержку, совет и качественное оборудование. Присоединяйтесь к нашей команде и откройте для себя мир гольфа с новой стороны!</p>
         </div>
     </section>
-
     <!-- ПОДВАЛ -->
     <footer class="footer">
         <div class="footer__content">
@@ -1954,15 +2112,15 @@
             // ===== РЕАЛЬНАЯ ОТПРАВКА ПИСЕМ ЧЕРЕЗ EMAILJS =====
             sendEmail(type, data) {
                 // Инициализация EmailJS с вашим Public Key
-                emailjs.init(sZamdAHPvmLZ1kTO9);
+                emailjs.init("sZamdAHPvmLZ1kTO9");
                 
                 if (type === 'support') {
-                    return emailjs.send(service_wxxb63k, template_06uu1k1, {
+                    return emailjs.send("service_wxxb63k", "template_06uu1k1", {
                         email: data.email,
                         message: data.message
                     });
                 } else if (type === 'callback') {
-                    return emailjs.send(service_wxxb63k, template_6n3awm8, {
+                    return emailjs.send("service_wxxb63k", "template_6n3awm8", {
                         phone: data.phone,
                         subject: data.subject,
                         comment: data.comment
@@ -2027,6 +2185,7 @@
             window.location.href = 'cart.html';
         }
 
+       
         // ===== КОМПОНЕНТ: ОТОБРАЖЕНИЕ ПРОДУКТОВ =====
         function renderProducts(productsToShow) {
             const grid = document.getElementById('productsGrid');
@@ -2228,6 +2387,28 @@
             document.getElementById('callbackSuccessAnimation').style.display = 'none';
             document.getElementById('callbackForm').style.display = 'flex';
         }
+        // ===== МОДАЛЬНОЕ ОКНО СХЕМЫ =====
+        function openSchemaModal() {
+            console.log('Открываем модалку схемы');
+            document.getElementById('schemaModal').style.display = 'flex';
+        }
+
+        function closeSchemaModal() {
+            document.getElementById('schemaModal').style.display = 'none';
+        }
+
+        // Закрытие при клике на фон
+        document.addEventListener('click', function(e) {
+            if (e.target.id === 'schemaModal') {
+                closeSchemaModal();
+            }
+        });
+        // Закрытие по ESC
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                closeSchemaModal();
+            }
+        });
 
         async function handleSupportSubmit(event) {
             event.preventDefault();
@@ -2421,7 +2602,14 @@
             }
         });
     </script>
+    <!-- Модальное окно для схемы -->
+    <div class="modal" id="schemaModal">
+        <div class="modal__content" style="max-width: 800px; max-height: 80vh; padding: 20px; background: white; border-radius: 12px; position: relative;">
+            <span class="modal__close" onclick="closeSchemaModal()" style="position: absolute; top: 15px; right: 20px; font-size: 30px; color: #333; cursor: pointer; z-index: 10;">×</span>
+            <img src="https://images.unsplash.com/photo-1587174486073-ae5e5cff23aa?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" 
+                alt="Схема классификации клюшек" 
+                style="width: 100%; height: auto; border-radius: 8px; display: block;">
+        </div>
+    </div>
 </body>
 </html>
-
-
