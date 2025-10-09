@@ -816,39 +816,35 @@
             border-color: var(--color-primary);
         }
 
-        /* ===== ИСПРАВЛЕННАЯ СЕКЦИЯ "О НАС" ===== */
-        
+        /* ===== СЕКЦИЯ "О НАС" ===== */
         .about-section {
             background: var(--color-secondary);
-            width: 100%;
-            margin: 0;
+            width: 100vw;
+            margin-left: calc(-50vw + 50%);
+            margin-right: calc(-50vw + 50%);
             padding: 0;
         }
 
-        .about-section__image {
-            width: 100%;
-            height: 400px;
-            overflow: hidden;
-        }
-
-        .about-section__image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            object-position: center;
-            display: block;
+        .about-section__container {
+            display: grid;
+            grid-template-columns: 1fr 1fr; /* Две равные колонки */
+            max-width: 100vw;
+            margin: 0;
+            min-height: 600px;
         }
 
         .about-section__content {
             background: var(--color-secondary);
+            display: flex;
+            align-items: center;
+            padding: 0;
             width: 100%;
-            padding: 60px 0;
         }
 
         .about-section__inner {
-            max-width: 1200px;
+            max-width: 500px;
             margin: 0 auto;
-            padding: 0 20px;
+            padding: 40px;
             color: var(--color-white);
             text-align: left;
         }
@@ -921,131 +917,60 @@
             transform: translateY(-2px);
         }
 
-        /* АДАПТИВНОСТЬ */
-        @media (max-width: 768px) {
+        .about-section__image {
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+
+        .about-section__image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+            display: block;
+        }
+
+        /* НА УСТРОЙСТВАХ МЕНЬШЕ 960px КАРТИНКА ПЕРЕМЕЩАЕТСЯ НАВЕРХ */
+        @media (max-width: 960px) {
+            .about-section__container {
+                grid-template-columns: 1fr; /* Одна колонка */
+                min-height: auto;
+            }
+            
+            .about-section__image {
+                order: -1; /* Картинка становится первой */
+                height: 400px; /* Фиксированная высота */
+            }
+            
+            .about-section__inner {
+                padding: 40px 20px;
+                max-width: 100%;
+            }
+            
+            .about-section__lead p {
+                font-size: 24px;
+            }
+        }
+
+        /* ДЛЯ ОЧЕНЬ МАЛЕНЬКИХ ЭКРАНОВ */
+        @media (max-width: 480px) {
             .about-section__image {
                 height: 300px;
             }
             
-            .about-section__content {
-                padding: 40px 0;
-            }
-            
             .about-section__inner {
-                padding: 0 15px;
+                padding: 30px 15px;
             }
             
             .about-section__lead p {
-                font-size: 22px;
+                font-size: 20px;
             }
             
             .about-section__text p {
                 font-size: 16px;
             }
         }
-
-        @media (max-width: 480px) {
-            .about-section__image {
-                height: 250px;
-            }
-            
-            .about-section__content {
-                padding: 30px 0;
-            }
-            
-            .about-section__inner {
-                padding: 0 10px;
-            }
-            
-            .about-section__lead p {
-                font-size: 18px;
-            }
-            
-            .about-section__text p {
-                font-size: 14px;
-            }
-        }
-        /* Стили для ссылок в тексте "О нас" */
-        .about-link {
-            color: var(--color-primary);
-            text-decoration: underline;
-            transition: all var(--transition-fast);
-        }
-
-        .about-link:hover {
-            color: var(--color-primary-dark);
-            text-decoration: none;
-        }
-        
-        .about-section {
-            padding: var(--spacing-4xl) var(--spacing-lg);
-            border-top: 1px solid var(--color-gray-line);
-            border-bottom: 1px solid var(--color-gray-line);
-            margin: 0 var(--spacing-lg);
-            max-width: 1200px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .about-section__title {
-            text-align: center;
-            font-size: 2.5rem;
-            margin-bottom: var(--spacing-3xl);
-            color: var(--color-text);
-            font-weight: 600;
-        }
-
-        .about-section__content {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: var(--spacing-3xl);
-            align-items: start;
-        }
-
-        .about-section__text {
-            font-size: var(--font-size-base);
-            line-height: 1.8;
-            color: var(--color-text);
-        }
-
-        .about-section__text p {
-            margin-bottom: var(--spacing-lg);
-        }
-
-        .about-section__images {
-            display: flex;
-            flex-direction: column;
-            gap: var(--spacing-lg);
-            position: relative;
-        }
-
-        .about-section__image {
-            border-radius: var(--radius-lg);
-            overflow: hidden;
-            box-shadow: var(--shadow-md);
-            transition: transform var(--transition-fast);
-        }
-
-        .about-section__image:hover {
-            transform: translateY(-5px);
-        }
-
-        .about-section__image img {
-            width: 100%;
-            height: 250px;
-            object-fit: cover;
-        }
-
-        .about-section__image:nth-child(1) {
-            align-self: flex-end;
-            margin-right: var(--spacing-xl);
-        }
-
-        .about-section__image:nth-child(2) {
-            align-self: flex-start;
-            margin-top: -60px;
-        }
-
         /* ===== КОМПОНЕНТ: ПОДВАЛ ===== */
         .footer {
             background: linear-gradient(135deg, var(--color-secondary) 0%, var(--color-secondary-light) 100%);
@@ -1839,32 +1764,34 @@
 
    <!-- СЕКЦИЯ "О НАС" -->
     <section class="about-section" id="about">
-        <!-- ИЗОБРАЖЕНИЕ -->
-        <div class="about-section__image">
-            <img src="https://images.unsplash.com/photo-1587174486073-ae5e5cff23aa?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" 
-                alt="EvenGolf - премиальные клюшки для гольфа">
-        </div>
+        <div class="about-section__container">
+            <!-- ТЕКСТОВЫЙ БЛОК (СЛЕВА НА БОЛЬШИХ ЭКРАНАХ) -->
+            <div class="about-section__content">
+                <div class="about-section__inner">
+                    <!-- ЛИД-ТЕКСТ -->
+                    <div class="about-section__lead">
+                        <p><span class="brand-highlight">EVENGOLF</span> - НОВЕЙШИЙ ИНТЕРНЕТ-МАГАЗИН, В КОТОРОМ МЫ ПОДОБРАЛИ ТОВАРЫ ДЛЯ ИГРОКОВ ЛЮБОГО УРОВНЯ.</p>
+                    </div>
+                    
+                    <!-- ОСНОВНОЙ ТЕКСТ -->
+                    <div class="about-section__text">
+                        <p>Мы формируем наш ассортимент исключительно с лучшими моделями последних лет, создавая оптимальные условия и открывая доступ к премиальному оборудованию для всех.</p>
+                        <p>Наша система <a href="trade-in.html" class="about-link">Trade-in</a> позволит вам моментально получить выкуп или обмен ваших клюшек с максимальной выгодой!</p>
+                        <p>Мы предлагаем персонализированный подход к каждому и ответим на любой ваш вопрос в <a href="#" onclick="openSupportModal()" class="about-link">поддержке</a>.</p>
+                    </div>
 
-        <!-- ТЕКСТОВЫЙ БЛОК -->
-        <div class="about-section__content">
-            <div class="about-section__inner">
-                <!-- ЛИД-ТЕКСТ -->
-                <div class="about-section__lead">
-                    <p><span class="brand-highlight">EVENGOLF</span> - НОВЕЙШИЙ ИНТЕРНЕТ-МАГАЗИН, В КОТОРОМ МЫ ПОДОБРАЛИ ТОВАРЫ ДЛЯ ИГРОКОВ ЛЮБОГО УРОВНЯ.</p>
+                    <!-- ССЫЛКА НА КАТАЛОГ -->
+                    <a href="#catalog-filters" class="about-section__link">
+                        КАТАЛОГ
+                        <i class="fas fa-arrow-up"></i>
+                    </a>
                 </div>
-                
-                <!-- ОСНОВНОЙ ТЕКСТ -->
-                <div class="about-section__text">
-                    <p>Мы формируем наш ассортимент исключительно с лучшими моделями последних лет, создавая оптимальные условия и открывая доступ к премиальному оборудованию для всех.</p>
-                    <p>Наша система <a href="trade-in.html" class="about-link">Trade-in</a> позволит вам моментально получить выкуп или обмен ваших клюшек с максимальной выгодой!</p>
-                    <p>Мы предлагаем персонализированный подход к каждому и ответим на любой ваш вопрос в <a href="#" onclick="openSupportModal()" class="about-link">поддержке</a>.</p>
-                </div>
+            </div>
 
-                <!-- ССЫЛКА НА КАТАЛОГ -->
-                <a href="#catalog-filters" class="about-section__link">
-                    КАТАЛОГ
-                    <i class="fas fa-arrow-up"></i>
-                </a>
+            <!-- ИЗОБРАЖЕНИЕ (СПРАВА НА БОЛЬШИХ ЭКРАНАХ) -->
+            <div class="about-section__image">
+                <img src="https://images.unsplash.com/photo-1587174486073-ae5e5cff23aa?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" 
+                    alt="EvenGolf - премиальные клюшки для гольфа">
             </div>
         </div>
     </section>
